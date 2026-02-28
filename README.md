@@ -60,7 +60,6 @@ npm install
 
 # 4. Inicie o servidor de desenvolvimento
 npm run dev
-
 ---
 
 ## 🌎 Deploy
