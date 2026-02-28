@@ -34,33 +34,26 @@ Este é o meu portfólio pessoal desenvolvido com React e Vite. Aqui você encon
 - Vercel (Deploy)  
 
 ---
-
 ## 🖼️ Imagens de exemplo
 
 ### Página inicial
 
-<img width="2940" height="1656" alt="image" src="https://github.com/user-attachments/assets/382692ff-b6cb-4520-8ccf-d4e4a9c26433" />
+<img width="100%" alt="Página inicial" src="https://github.com/user-attachments/assets/382692ff-b6cb-4520-8ccf-d4e4a9c26433" />
 
 ### Seção de Projetos
 
-<img width="1602" height="1660" alt="image" src="https://github.com/user-attachments/assets/79538612-0810-49ac-8f05-94d448e2d056" />
+<img width="100%" alt="Seção de Projetos" src="https://github.com/user-attachments/assets/79538612-0810-49ac-8f05-94d448e2d056" />
 
 ---
 
 ## 🛠️ Instalação e uso local
 
-# 1. Clone o repositório
+Siga os passos abaixo para executar o projeto localmente:
+
+### 1️⃣ Clone o repositório
+
+```bash
 git clone https://github.com/tfelizardo/portifolio-thiago
-
-# 2. Acesse a pasta do projeto
-cd portifolio-thiago
-
-# 3. Instale as dependências
-npm install
-
-# 4. Inicie o servidor de desenvolvimento
-npm run dev
----
 
 ## 🌎 Deploy
 
