@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+
+  --color-brand-sidebar: #3f3f46;
+  --color-brand-main: #27272a;
+  --color-brand-card: #333338;
+
+  --color-brand-pink: #d12f7a;
+  --color-brand-blue: #073fcc;
+  --color-brand-purple: #5f01ac;
+  --color-brand-orange: #ff6b00;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1aa;
+
+  --animate-marquee: marquee 13s linear infinite;
+  --animate-fade-in: fadeIn 1.5s ease-out;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Configuração Global de Fontes */
+:root {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--color-brand-main);
+  color: var(--color-text-primary);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Aplicação de fonte para textos, garantindo que NÃO afete ícones */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+button,
+span:not([class*="fa-"]):not([class*="devicon-"]) {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-feature-settings: "cv02", "cv05", "cv11";
+}
+
+/* Proteção para Ícones: Impede que a fonte Inter sobrescreva o FontAwesome e Devicon */
+i,
+[class^="fa-"],
+[class*=" fa-"],
+[class^="devicon-"],
+[class*=" devicon-"] {
+  font-family: inherit;
+}
+
+/* Força o FontAwesome e Devicon em suas classes específicas */
+.fa-solid,
+.fa-brands,
+.fa-regular,
+.fas,
+.fab,
+.far {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+  font-weight: 900;
+}
+
+[class^="devicon-"],
+[class*=" devicon-"] {
+  font-family: "devicon" !important;
+}
+
+
+
+
+/* Pause Animation on Hover */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333338;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #44444a;
+}
