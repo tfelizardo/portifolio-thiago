@@ -115,8 +115,10 @@ const App = () => {
         { label: "FRONTEND", icon: "fa-solid fa-display", iconColor: "text-[#a78bfa]", desc: "Visual do jogo no client-side" },
         { separator: true },
         { label: "REACT", icon: "devicon-react-original", iconColor: "text-[#61dafb]", desc: "Gerenciamento de estado complexo e ciclo de vida" },
+        { label: "VITE", icon: "devicon-vitejs-plain", iconColor: "text-[#646cff]", desc: "Ambiente de desenvolvimento rápido" },
         { label: "JAVASCRIPT", icon: "devicon-javascript-plain", iconColor: "text-[#f7df1e]", desc: "Animações lógicas de alvo em canvas/DOM" },
-        { label: "CSS", icon: "devicon-css3-plain", iconColor: "text-[#1572b6]", desc: "Estilizações responsivas dos elementos" }
+        { label: "CSS", icon: "devicon-css3-plain", iconColor: "text-[#1572b6]", desc: "Estilizações responsivas dos elementos" },
+        { label: "VERCEL", icon: "devicon-vercel-original", iconColor: "text-white", desc: "Plataforma de deploy contínuo" }
       ]
     },
     {
