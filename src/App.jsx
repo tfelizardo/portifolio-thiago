@@ -106,24 +106,25 @@ const App = () => {
       ]
     },
     {
-      title: "reflex.game",
-      desc: "Muito usado por jogadores de FPS para treinar a reação, o reflex.game é um jogo simples, porém desafiador. Seu objetivo é clicar nos alvos que aparecem aleatoriamente na tela. Conforme sua pontuação aumenta, o jogo fica mais rápido e mais alvos surgem, testando seus reflexos ao máximo. O projeto foi desenvolvido como forma de praticar conceitos avançados de React, como gerenciamento de estado complexo, animações com requestAnimationFrame e efeitos colaterais com useEffect.",
-      img: reflexImg,
-      repo: "https://github.com/tfelizardo/reflex-game",
-      live: "https://reflex-game-cyan.vercel.app/",
+      title: "Solicitador de Despesas",
+      desc: "Plataforma web full-stack completa para solicitação e controle eficiente de despesas. O frontend foi desenvolvido com React, TypeScript e Vite, garantindo uma interface ágil, tipagem segura e componentização escalável, com comunicação de dados via Axios. O backend é sustentado por uma API REST robusta construída em Node.js com o framework AdonisJS, operando com um banco de dados SQLite para gerenciar os cadastros e requisições de forma veloz e segura.",
+      img: despesasImg,
+      repo: "https://github.com/tfelizardo/Solicitador-de-despesas",
+      live: "https://refund-project-xi.vercel.app/",
       tags: [
-        { label: "FRONTEND", icon: "fa-solid fa-display", iconColor: "text-[#a78bfa]", desc: "Visual do jogo no client-side" },
+        { label: "FRONTEND", icon: "fa-solid fa-display", iconColor: "text-[#a78bfa]", desc: "Interface dinâmica e reativa" },
+        { label: "BACKEND", icon: "fa-solid fa-server", iconColor: "text-[#a78bfa]", desc: "API RESTful estruturada" },
         { separator: true },
-        { label: "REACT", icon: "devicon-react-original", iconColor: "text-[#61dafb]", desc: "Gerenciamento de estado complexo e ciclo de vida" },
-        { label: "VITE", icon: "devicon-vitejs-plain", iconColor: "text-[#646cff]", desc: "Ambiente de desenvolvimento rápido" },
-        { label: "JAVASCRIPT", icon: "devicon-javascript-plain", iconColor: "text-[#f7df1e]", desc: "Animações lógicas de alvo em canvas/DOM" },
-        { label: "CSS", icon: "devicon-css3-plain", iconColor: "text-[#1572b6]", desc: "Estilizações responsivas dos elementos" },
-        { label: "VERCEL", icon: "devicon-vercel-original", iconColor: "text-white", desc: "Plataforma de deploy contínuo" }
+        { label: "REACT", icon: "devicon-react-original", iconColor: "text-[#61dafb]", desc: "Componentização e hooks" },
+        { label: "TYPESCRIPT", icon: "devicon-typescript-plain", iconColor: "text-[#3178c6]", desc: "Tipagem estática forte" },
+        { label: "AXIOS", icon: "fa-solid fa-network-wired", iconColor: "text-white/80", desc: "IntegraçãoHTTP veloz" },
+        { label: "ADONISJS", icon: "devicon-adonisjs-original", iconColor: "text-[#5a45ff]", desc: "Framework Node.js MDC" },
+        { label: "SQLITE", icon: "devicon-sqlite-plain", iconColor: "text-[#003b57]", desc: "Database leve e rápido" }
       ]
     },
     {
       title: "HairDay",
-      desc: "Um sistema de agendamento desenvolvido para organizar atendimentos de forma simples, rápida e intuitiva. O sistema organiza os agendamentos automaticamente por períodos do dia (manhã, tarde e noite) e impede a duplicidade de horários, garantindo uma experiência profissional e sem conflitos.",
+      desc: "Um sistema de agendamento em formato SPA (Single Page Application) desenvolvido com React e TypeScript para organizar atendimentos de forma simples e intuitiva. Criado com foco na estabilidade proporcionada pela tipagem estática, o sistema estrutura automaticamente os blocos de horário pelo período do dia (manhã, tarde e noite). Ele utiliza recursos de validações ativas de estado no client-side para evitar conflitos na marcação e duplicidade de horários na agenda.",
       img: hairDayImg,
       repo: "https://github.com/tfelizardo/Hairday",
       live: "https://hairday-rocket.vercel.app/",
@@ -139,8 +140,24 @@ const App = () => {
       ]
     },
     {
+      title: "reflex.game",
+      desc: "Muito procurado por jogadores de FPS, o reflex.game é um web game simples, porém desafiador, com foco no treinamento do tempo de reação aos alvos. A dificuldade escala conforme os acertos progridem com intensificação do tempo de spawn do alvo. A aplicação foi elaborada com React, aproveitando conceitos como gerenciamento de estado complexo, o controle de ciclo de vida com Hooks (useRef, useEffect) e controle algorítmico do tempo de loop das animações mediante requestAnimationFrame.",
+      img: reflexImg,
+      repo: "https://github.com/tfelizardo/reflex-game",
+      live: "https://reflex-game-cyan.vercel.app/",
+      tags: [
+        { label: "FRONTEND", icon: "fa-solid fa-display", iconColor: "text-[#a78bfa]", desc: "Visual do jogo no client-side" },
+        { separator: true },
+        { label: "REACT", icon: "devicon-react-original", iconColor: "text-[#61dafb]", desc: "Gerenciamento de estado complexo e ciclo de vida" },
+        { label: "VITE", icon: "devicon-vitejs-plain", iconColor: "text-[#646cff]", desc: "Ambiente de desenvolvimento rápido" },
+        { label: "JAVASCRIPT", icon: "devicon-javascript-plain", iconColor: "text-[#f7df1e]", desc: "Animações lógicas de alvo em canvas/DOM" },
+        { label: "CSS", icon: "devicon-css3-plain", iconColor: "text-[#1572b6]", desc: "Estilizações responsivas dos elementos" },
+        { label: "VERCEL", icon: "devicon-vercel-original", iconColor: "text-white", desc: "Plataforma de deploy contínuo" }
+      ]
+    },
+    {
       title: "Voz da Perifa",
-      desc: "Em parceria com o PerifaConnection, desenvolvi uma landing page responsiva para a divulgação do Jornal Voz da Perifa, projeto de comunicação popular focado em justiça climática e racismo ambiental, com atenção à acessibilidade, usabilidade e apresentação institucional da iniciativa.",
+      desc: "Em parceria oficial com o PerifaConnection, desenvolvi essa robusta landing page focado em alta performance. Mantendo HTML5 semântico, interfaces Flexbox/Grid responsivas e isoladas manipulações DOM via JavaScript Vanilla puro, criamos uma forte apresentação institucional. Os critérios prioritários do app envolviam SEO otimizado no conteúdo base da página usando tags ricas em atributos de metadados, conformidade com exigentes restrições de acessibilidade em redes com WCAG e usabilidade moderna.",
       img: vozImg,
       repo: "https://github.com/tfelizardo/voz-da-perifa",
       live: "https://vozdaperifa.com.br/",
@@ -154,7 +171,7 @@ const App = () => {
     },
     {
       title: "Conversor de Moedas",
-      desc: "É uma aplicação web que permite a conversão de valores entre diferentes moedas em tempo real. O projeto consome uma API externa para garantir cotações atualizadas e precisas.",
+      desc: "Aplicação front-end simples de conversor financeiro e monetário baseada em cotação contínua e em tempo real. O app se conecta a arquitetura de API externa por requisições assíncronas Fetch (AJAX) para parsear os fluxos em JSON, e utilizar tratativas integradas à UI em ES6+. A página executa de forma segura todo carregamento, os fallback de network em caso de falha API e converte o dinheiro atômico de dezenas de nações de forma reponsiva sem page reload.",
       img: conversorImg,
       repo: "https://github.com/tfelizardo/Conversor-de-moedas",
       live: "https://tfelizardo.github.io/Conversor-de-moedas/",
@@ -165,20 +182,6 @@ const App = () => {
         { label: "CSS", icon: "devicon-css3-plain", iconColor: "text-[#1572b6]", desc: "Estilos consistentes entre browsers" },
         { label: "JAVASCRIPT", icon: "devicon-javascript-plain", iconColor: "text-[#f7df1e]", desc: "Lógica de cálculo das cotações da API" },
         { label: "API", icon: "fa-solid fa-network-wired", iconColor: "text-white/80", desc: "Integração via HTTP de taxas globais" }
-      ]
-    },
-    {
-      title: "Solicitador de Despesas",
-      desc: "Aplicação web para solicitação e controle de despesas, utilizando HTML, CSS e JavaScript. O projeto permite o cadastro e a visualização dinâmica das despesas, com layout responsivo e funcionamento simples e intuitivo.",
-      img: despesasImg,
-      repo: "https://github.com/tfelizardo/Solicitador-de-despesas",
-      live: "https://tfelizardo.github.io/Solicitador-de-despesas/",
-      tags: [
-        { label: "FRONTEND", icon: "fa-solid fa-display", iconColor: "text-[#a78bfa]", desc: "Interface de controle local" },
-        { separator: true },
-        { label: "HTML", icon: "devicon-html5-plain", iconColor: "text-[#e34f26]", desc: "Tabelas e organização em formulários" },
-        { label: "CSS", icon: "devicon-css3-plain", iconColor: "text-[#1572b6]", desc: "Cores e temas" },
-        { label: "JAVASCRIPT", icon: "devicon-javascript-plain", iconColor: "text-[#f7df1e]", desc: "Adição e remoção dinâmica na listagem" }
       ]
     }
   ];
