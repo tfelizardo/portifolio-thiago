@@ -85,7 +85,8 @@ const App = () => {
     { src: nodeIcon, name: "Node.js", desc: "APIs básicas" },
     { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", name: "Git", desc: "Controle de versão" },
     { isDevicon: true, className: "devicon-azuresqldatabase-plain text-[#0078d4]", name: "SQL", desc: "Consultas e modelagem simples" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg", name: "Tailwind CSS", desc: "Estilização utilitária rápida" }
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg", name: "Tailwind CSS", desc: "Estilização utilitária rápida" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg", name: "Bootstrap", desc: "Framework CSS para layouts responsivos" }
   ];
 
   const projects = [
