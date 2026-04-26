@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 // Assets
-import fotinha from './assets/fotinha.jpeg';
+import avatar3D from './assets/3d_developer_avatar.png';
 import htmlIcon from './svg/html.svg';
 import cssIcon from './svg/css.svg';
 import jsIcon from './svg/js.svg';
@@ -23,38 +15,16 @@ import hairDayImg from './assets/HairDay .png';
 import reflexImg from './assets/reflex-dev .png';
 import curriculoPdf from './public/document/curriculo-thiago.pdf';
 
-const glowStyle = (color, top, left) => ({
-  position: "absolute",
-  width: "400px",
-  height: "400px",
-  top: top,
-  left: left,
-  background: color,
-  borderRadius: "50%",
-  filter: "blur(120px)",
-  opacity: 0.4,
-  animation: "float 10s infinite alternate ease-in-out",
-});
-
 function Background3D() {
   return (
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: -1,
-        overflow: "hidden",
-        background: "#0f0f0f",
-      }}
-    >
-      {/* GLOW 1 */}
-      <div style={glowStyle("#ff6b00", "20%", "30%")} />
+    <div className="fixed inset-0 z-0 pointer-events-none bg-[#0a0a0c]">
+      {/* Premium Dotted Grid Pattern */}
+      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
 
-      {/* GLOW 2 */}
-      <div style={glowStyle("#00d4ff", "80%", "20%")} />
-
-      {/* GLOW 3 */}
-      <div style={glowStyle("#9333ea", "50%", "80%")} />
+      {/* Floating Neon Orbs */}
+      <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] bg-brand-purple/30 blur-[150px] mix-blend-screen rounded-full animate-pulse-glow"></div>
+      <div className="absolute -bottom-[20%] -right-[10%] w-[50vw] h-[50vw] bg-brand-blue/25 blur-[150px] mix-blend-screen rounded-full animate-pulse-glow" style={{ animationDelay: '1.5s' }}></div>
+      <div className="absolute top-[40%] right-[30%] w-[35vw] h-[35vw] bg-[#ff6b00]/10 blur-[150px] mix-blend-screen rounded-full"></div>
     </div>
   );
 }
@@ -78,15 +48,15 @@ const App = () => {
   }, []);
 
   const skills = [
-    { src: htmlIcon, name: "HTML5", desc: "Estrutura e semântica" },
-    { src: cssIcon, name: "CSS3", desc: "Estilização e design" },
-    { src: jsIcon, name: "JavaScript", desc: "Manipulação de DOM e lógica" },
-    { src: reactIcon, name: "React", desc: "Interfaces dinâmicas com hooks" },
-    { src: nodeIcon, name: "Node.js", desc: "APIs básicas" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", name: "Git", desc: "Controle de versão" },
-    { isDevicon: true, className: "devicon-azuresqldatabase-plain text-[#0078d4]", name: "SQL", desc: "Consultas e modelagem simples" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg", name: "Tailwind CSS", desc: "Estilização utilitária rápida" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg", name: "Bootstrap", desc: "Framework CSS para layouts responsivos" }
+    { src: htmlIcon, name: "HTML" },
+    { src: cssIcon, name: "CSS" },
+    { src: jsIcon, name: "JavaScript" },
+    { src: reactIcon, name: "React" },
+    { src: nodeIcon, name: "Node.js" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", name: "Git" },
+    { isDevicon: true, className: "devicon-azuresqldatabase-plain text-[#0078d4]", name: "SQL" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg", name: "Tailwind" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg", name: "Bootstrap" }
   ];
 
   const projects = [
@@ -190,242 +160,254 @@ const App = () => {
   return (
     <>
       <Background3D />
-      <div className="flex flex-col lg:flex-row min-h-screen animate-fade-in font-sans">
+      <div className="relative z-10 min-h-screen text-white font-sans overflow-x-hidden pt-12">
 
-        {/* SIDEBAR (Esquerda - Fixa) */}
-        <aside className="w-full lg:w-[35%] h-auto bg-black/30 backdrop-blur-2xl border-r border-gray-800 flex flex-col justify-start items-center p-8 lg:p-10 relative z-10 lg:sticky lg:top-0 lg:h-screen">
+        <main className="max-w-[1400px] mx-auto w-full flex flex-col gap-32 pb-32">
 
-          {/* Avatar com Glow */}
-          <div className="relative mb-8 group cursor-pointer">
-            <div className="absolute -inset-1 bg-gradient-to-br from-brand-pink to-brand-blue rounded-full blur opacity-10 group-hover:opacity-40 transition duration-500"></div>
-            <img
-              src={fotinha}
-              className="relative w-40 h-40 lg:w-56 lg:h-56 rounded-full object-cover border-4 border-white shadow-2xl transition duration-500"
-              alt="Avatar"
-            />
-          </div>
+          {/* SECTION 1: HERO + HABILIDADES */}
+          <section className="min-h-[85vh] w-full flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 gap-10 lg:gap-0 relative">
 
-          <div className="text-center space-y-4 px-2">
-            <h1 className="text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug">
-              Olá, eu sou <span className="text-brand-orange">Thiago Felizardo,</span> Desenvolvedor de Software
-            </h1>
-            <p className="text-text-secondary leading-relaxed text-sm lg:text-base mt-2">
-              Trabalho no desenvolvimento de interfaces interativas, com design responsivo, buscando impacto e inovação social por meio da tecnologia, com foco em conectar pessoas, informações e soluções a contextos reais.
-            </p>
-          </div>
-
-          {/* Socials */}
-          <div className="flex gap-4 mt-10">
-            {[
-              {
-                href: "https://github.com/tfelizardo",
-                svg: (
-                  <svg viewBox="0 0 24 24" className="w-6 h-6 fill-white">
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                  </svg>
-                )
-              },
-              {
-                href: "https://www.linkedin.com/in/thiago-felizardo-835b09213/",
-                svg: (
-                  <svg viewBox="0 0 448 512" className="w-5 h-5 fill-white">
-                    <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-                  </svg>
-                )
-              },
-              {
-                href: "https://www.instagram.com/flzthiago/",
-                svg: (
-                  <svg viewBox="0 0 24 24" className="w-6 h-6 fill-white">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.058-1.69-.072-4.949-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg>
-                )
-              }
-            ].map((social, idx) => (
-              <a key={idx} href={social.href} target="_blank" rel="noreferrer" className="w-12 h-12 flex items-center justify-center bg-[#2d2d32] rounded-xl hover:bg-brand-orange transition-all transform hover:-translate-y-1 border border-white/10 shadow-xl group">
-                {social.svg}
-              </a>
-            ))}
-          </div>
-
-          <a href={curriculoPdf} download className="mt-12 px-10 py-3.5 rounded-full bg-brand-main text-white font-bold text-xs tracking-[0.15em] hover:bg-brand-orange transition-all shadow-xl flex items-center gap-2 border border-gray-800 uppercase">
-            CURRICULO <i className="fa-solid fa-download text-[10px]"></i>
-          </a>
-
-        </aside>
-
-        {/* MAIN CONTENT (Direita - Scroll) */}
-        <main className="w-full lg:w-[65%] h-full bg-transparent relative">
-          <div className="p-6 lg:px-20 lg:pt-12 lg:pb-20 max-w-5xl mx-auto space-y-12">
-
-            {/* SKILLS MARQUEE */}
-            <section className="overflow-hidden">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-white flex items-center gap-4 relative z-20">
-                Minhas Habilidades <span className="w-16 h-[3px] bg-brand-orange rounded-full mt-1"></span>
+            {/* Left: 3D Character & Info */}
+            <div className="w-full lg:w-1/2 flex flex-col lg:items-start items-center text-center lg:text-left relative">
+              <h2 className="text-brand-blue font-bold tracking-widest text-sm lg:text-base uppercase mb-3 drop-shadow-[0_0_10px_rgba(0,212,255,0.4)]">
+                Olá, eu sou Thiago Felizardo
               </h2>
+              <h1 className="text-4xl lg:text-6xl font-heading font-extrabold leading-tight mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+                Desenvolvedor de<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-purple">Software</span>
+              </h1>
+              <p className="text-text-secondary text-sm lg:text-[15px] max-w-lg mb-8 leading-relaxed">
+                Trabalho no desenvolvimento de interfaces interativas, com design responsivo, buscando impacto e inovação social por meio da tecnologia, com foco em conectar pessoas, informações e soluções a contextos reais.
+              </p>
 
-              <div className="relative w-full overflow-hidden pt-10 pb-24 -mt-2">
+              {/* Floating Element: 3D Character interaction */}
+              <div className="relative w-full max-w-[500px] aspect-[4/3] animate-float mt-4">
+                <div className="absolute inset-x-8 top-10 bottom-0 bg-brand-purple/20 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+                <img
+                  src={avatar3D}
+                  alt="Avatar 3D do Thiago"
+                  className="w-full h-full object-cover relative z-10"
+                  style={{
+                    WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%)',
+                    maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%)'
+                  }}
+                />
 
-                <div className="flex w-max animate-marquee hover:pause">
-                  {[1, 2, 3, 4].map((set) => (
-                    <div key={set} className="flex gap-12 items-center px-6">
-                      {skills.map((skill, idx) => {
-                        const isActive = activeTooltip === `skill-${set}-${idx}`;
-                        return (
-                          <div
-                            key={idx}
-                            className="tooltip-trigger relative group cursor-pointer flex items-center justify-center"
-                            onClick={() => setActiveTooltip(isActive ? null : `skill-${set}-${idx}`)}
-                          >
-                            {/* Ícone Puro (Scale + Glow) */}
-                            <div className={`transition-all duration-300 group-hover:scale-125 group-hover:drop-shadow-[0_0_15px_rgba(255,102,0,0.4)] group-hover:-translate-y-1 relative z-10 flex items-center justify-center ${isActive ? 'scale-125 drop-shadow-[0_0_15px_rgba(255,102,0,0.4)] -translate-y-1' : ''}`}>
-                              {skill.isDevicon ? (
-                                <i className={skill.className} style={{ fontSize: '44px' }}></i>
-                              ) : (
-                                <img src={skill.src} alt={skill.name} className="w-11 h-11 object-contain" />
-                              )}
-                            </div>
+                {/* Holographic Snippets (Decoration) */}
+                <div className="hidden lg:flex absolute top-5 right-0 glass-panel px-4 py-3 rounded-xl animate-float-delayed text-[10px] font-mono text-brand-blue border border-brand-blue/30 shadow-[0_0_20px_rgba(0,212,255,0.2)] z-20">
+                  &lt;React.Fragment /&gt;
+                </div>
+                <div className="hidden lg:flex absolute bottom-10 left-5 glass-panel px-5 py-4 rounded-xl animate-float text-xs font-mono text-brand-purple border border-brand-purple/30 shadow-[0_0_20px_rgba(147,51,234,0.2)] z-20">
+                  npm run dev
+                </div>
+              </div>
+            </div>
 
-                            {/* Tooltip com nome e contexto */}
-                            <div className={`absolute transition-all duration-300 z-50 w-max max-w-[180px] bg-[#252528] border border-white/10 rounded-xl p-3 shadow-2xl top-[calc(100%+12px)] left-1/2 -translate-x-1/2 pointer-events-none text-center ${isActive ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-3 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'}`}>
-                              <h4 className="text-white font-bold text-sm mb-1">{skill.name}</h4>
-                              <p className="text-brand-orange/90 text-[11px] leading-snug font-medium">{skill.desc}</p>
-                              <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-[#252528] border-l border-t border-white/10 rotate-45"></div>
-                            </div>
-                          </div>
-                        );
-                      })}
+            {/* Right: Glassmorphism Skills Panels */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end relative">
+              <div className="glass-card w-full max-w-lg p-8 lg:p-12 rounded-[2rem] relative z-10 border border-white/10 shadow-2xl">
+                <h3 className="text-xl font-heading font-bold mb-8 flex items-center gap-3 text-white">
+                  <i className="fa-solid fa-layer-group text-brand-blue"></i> Minhas Habilidades
+                </h3>
+
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center">
+                  {skills.map((skill, idx) => (
+                    <div key={idx} className="group relative flex flex-col items-center gap-3 cursor-pointer">
+                      <div className="w-16 h-16 glass-panel rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_25px_rgba(0,212,255,0.4)] group-hover:bg-brand-blue/10">
+                        {skill.isDevicon ? (
+                          <i className={skill.className} style={{ fontSize: '30px' }}></i>
+                        ) : (
+                          <img src={skill.src} alt={skill.name} className="w-8 h-8 object-contain drop-shadow-md" />
+                        )}
+                      </div>
+                      <span className="text-[11px] lg:text-xs font-medium text-text-secondary group-hover:text-white transition-colors text-center">{skill.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
-            </section>
 
-            {/* PROJECTS CAROUSEL */}
-            <section>
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl lg:text-3xl font-bold flex items-center gap-4 text-white">
-                  Projetos Individuais e Colaborativos <span className="w-16 h-[3px] bg-brand-orange rounded-full mt-1"></span>
-                </h2>
-                <div className="flex gap-3">
-                  <button className="swiper-prev-btn w-10 h-10 flex items-center justify-center rounded-full border border-gray-800 bg-[#252528] text-white hover:bg-brand-orange hover:border-brand-orange transition-all text-sm">
-                    <i className="fa-solid fa-chevron-left"></i>
-                  </button>
-                  <button className="swiper-next-btn w-10 h-10 flex items-center justify-center rounded-full border border-gray-800 bg-[#252528] text-white hover:bg-brand-orange hover:border-brand-orange transition-all text-sm">
-                    <i className="fa-solid fa-chevron-right"></i>
-                  </button>
+              {/* Decorative background circle */}
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-white/5 rounded-full z-0 flex items-center justify-center">
+                <div className="w-[200px] h-[200px] border border-brand-purple/20 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
+              </div>
+            </div>
+
+          </section>
+
+          {/* SECTION 2: TIMELINE (Experiências Recentes) */}
+          <section className="px-6 lg:px-20 w-full relative">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-5xl font-heading font-bold mb-4 drop-shadow-md">
+                Experiências <span className="text-brand-purple">Recentes</span>
+              </h2>
+              <p className="text-text-secondary max-w-xl mx-auto">Uma linha do tempo da minha jornada construindo produtos e soluções web.</p>
+            </div>
+
+            <div className="relative w-full max-w-5xl mx-auto mt-24">
+              {/* Horizontal glowing line */}
+              <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] timeline-line rounded-full z-0 hidden lg:block"></div>
+
+              <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-8 relative z-10 w-full px-4 lg:px-0">
+
+                {/* Item 1 */}
+                <div className="flex-1 w-full lg:w-auto relative group">
+                  {/* Dot indicator */}
+                  <div className="hidden lg:flex absolute top-[-52px] left-1/2 -translate-x-1/2 w-4 h-4 bg-brand-blue rounded-full shadow-[0_0_15px_rgba(0,212,255,0.8)] z-20 transition-transform group-hover:scale-150"></div>
+
+                  <div className="glass-card p-6 lg:p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 h-full">
+                    <div className="text-brand-blue font-bold text-sm mb-2 flex items-center justify-between">
+                      <span>Setembro de 2025</span>
+                      <i className="fa-solid fa-briefcase opacity-50 text-xl"></i>
+                    </div>
+                    <h3 className="text-xl font-heading font-bold text-white mb-4">Observatório das Baixadas</h3>
+                    <p className="text-brand-purple/80 text-xs uppercase tracking-widest font-bold mb-4">Desenvolvedor Front-End</p>
+                    <ul className="text-text-secondary text-xs sm:text-sm space-y-3">
+                      <li className="flex gap-2"><i className="fa-solid fa-circle-check text-brand-blue mt-1 text-[10px]"></i> Desenvolvimento do Atlas da Baixada (plataforma de mapeamento colaborativo)</li>
+                      <li className="flex gap-2"><i className="fa-solid fa-circle-check text-brand-blue mt-1 text-[10px]"></i> Interfaces responsivas e melhorias contínuas de UX</li>
+                      <li className="flex gap-2"><i className="fa-solid fa-circle-check text-brand-blue mt-1 text-[10px]"></i> Integração com APIs e banco de dados via Supabase</li>
+                      <li className="flex gap-2"><i className="fa-solid fa-circle-check text-brand-blue mt-1 text-[10px]"></i> Boas práticas de SEO</li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Item 2 */}
+                <div className="flex-1 w-full lg:w-auto mt-0 lg:mt-24 relative group">
+                  {/* Dot indicator */}
+                  <div className="hidden lg:flex absolute top-[-52px] left-1/2 -translate-x-1/2 w-4 h-4 bg-brand-purple rounded-full shadow-[0_0_15px_rgba(147,51,234,0.8)] z-20 transition-transform group-hover:scale-150"></div>
+
+                  <div className="glass-card p-6 lg:p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 h-full">
+                    <div className="text-brand-purple font-bold text-sm mb-2 flex items-center justify-between">
+                      <span>Dezembro de 2025</span>
+                      <i className="fa-solid fa-laptop-code opacity-50 text-xl"></i>
+                    </div>
+                    <h3 className="text-xl font-heading font-bold text-white mb-4">PerifaConnection</h3>
+                    <p className="text-brand-blue/80 text-xs uppercase tracking-widest font-bold mb-4">Freelancer Web</p>
+                    <ul className="text-text-secondary text-xs sm:text-sm space-y-3">
+                      <li className="flex gap-2"><i className="fa-solid fa-circle-check text-brand-purple mt-1 text-[10px]"></i> Criação de páginas para o jornal Voz da Perifa</li>
+                      <li className="flex gap-2"><i className="fa-solid fa-circle-check text-brand-purple mt-1 text-[10px]"></i> Layouts responsivos e adaptáveis</li>
+                      <li className="flex gap-2"><i className="fa-solid fa-circle-check text-brand-purple mt-1 text-[10px]"></i> SEO avançado com tags de acessibilidade</li>
+                      <li className="flex gap-2"><i className="fa-solid fa-circle-check text-brand-purple mt-1 text-[10px]"></i> Otimização de performance e usabilidade</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
+            </div>
+          </section>
 
-              <Swiper
-                modules={[Navigation]}
-                spaceBetween={40}
-                slidesPerView={1}
-                grabCursor={true}
-                autoHeight={true}
-                navigation={{
-                  prevEl: '.swiper-prev-btn',
-                  nextEl: '.swiper-next-btn',
-                }}
-                className="mySwiper overflow-hidden"
-              >
-                {projects.map((project, index) => (
-                  <SwiperSlide key={index}>
-                    <div className="bg-brand-card rounded-2xl overflow-hidden p-0 transition-all duration-300 group">
-                      <div className="relative w-full aspect-video overflow-hidden">
+          {/* SECTION 3: PROJETOS */}
+          <section className="px-6 lg:px-20 w-full relative z-20">
+            <div className="text-left mb-16">
+              <h2 className="text-3xl lg:text-4xl font-heading font-bold mb-4 drop-shadow-md">
+                Projetos Individuais e Colaborativos
+              </h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-brand-blue to-brand-purple rounded-full"></div>
+            </div>
 
-                        <img
-                          src={project.img}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          style={{ objectPosition: project.objectPosition || 'center' }}
-                          alt={project.title}
-                        />
-                      </div>
-                      <div className="p-6 lg:px-10 lg:pt-10 lg:pb-8 space-y-5">
-                        <h3 className="text-2xl font-bold text-white tracking-tight">{project.title}</h3>
-                        <p className="text-text-secondary text-sm leading-relaxed">{project.desc}</p>
-                        <div className="flex flex-wrap items-center gap-2 pt-1 pb-2">
-                          {project.tags && project.tags.map((tag, tagIdx) => {
-                            if (tag.separator) {
-                              return <div key={tagIdx} className="w-[1px] h-4 bg-white/10 mx-1"></div>;
-                            }
-                            const isActive = activeTooltip === `project-${index}-${tagIdx}`;
-                            return (
-                              <div
-                                key={tagIdx}
-                                className="tooltip-trigger relative group/tag cursor-pointer"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  e.preventDefault();
-                                  setActiveTooltip(isActive ? null : `project-${index}-${tagIdx}`);
-                                }}
-                              >
-                                <span className={`flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[10px] sm:text-xs font-medium text-white/80 uppercase tracking-wider backdrop-blur-sm transition-all duration-300 group-hover/tag:bg-white/10 group-hover/tag:border-brand-orange/50 group-hover/tag:-translate-y-0.5 group-hover/tag:shadow-[0_0_15px_rgba(255,102,0,0.15)] group-hover/tag:text-white ${isActive ? 'bg-white/10 border-brand-orange/50 -translate-y-0.5 shadow-[0_0_15px_rgba(255,102,0,0.15)] text-white' : ''}`}>
-                                  {tag.icon && <i className={`${tag.icon} ${tag.iconColor || 'text-white/60'} text-xs transition-transform duration-300 group-hover/tag:scale-125 ${isActive ? 'scale-125' : ''}`}></i>}
-                                  {tag.label}
-                                </span>
+            {/* 3D Floating Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 perspective-1000">
+              {projects.map((proj, idx) => (
+                <div key={idx} className="glass-card rounded-[2rem] p-3 overflow-hidden group transform-3d hover:rotate-x-2 hover:rotate-y-[-2deg] hover:scale-[1.02] hover:-translate-y-2 transition-all duration-500 ease-out h-full flex flex-col hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] border border-white/5 hover:border-brand-blue/30">
+                  {/* Imagem Placeholder Decorada */}
+                  <div className="relative w-full h-48 sm:h-64 rounded-xl overflow-hidden mb-6 filter brightness-90 group-hover:brightness-110 transition-all duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <img src={proj.img} alt={proj.title} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" style={{ objectPosition: proj.objectPosition || 'center' }} />
+                  </div>
 
-                                {tag.desc && (
-                                  <div className={`absolute transition-all duration-300 z-50 w-max max-w-[220px] bg-[#252528] border border-white/10 rounded-xl p-3 shadow-2xl bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 pointer-events-none text-center ${isActive ? 'opacity-100 visible -translate-y-2' : 'opacity-0 invisible translate-y-2 group-hover/tag:opacity-100 group-hover/tag:visible group-hover/tag:-translate-y-2'}`}>
-                                    <h4 className="text-white font-bold text-[10px] mb-1 uppercase tracking-[0.1em]">{tag.label}</h4>
-                                    <p className="text-brand-orange/90 text-[11px] leading-snug font-medium normal-case tracking-normal">{tag.desc}</p>
-                                    <div className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-3 h-3 bg-[#252528] border-r border-b border-white/10 rotate-45"></div>
-                                  </div>
-                                )}
+                  <div className="px-5 pb-5 flex-1 flex flex-col z-20 relative">
+                    <h3 className="text-2xl font-bold font-heading text-white mb-3 tracking-wide">{proj.title}</h3>
+                    <p className="text-text-secondary text-sm mb-6 leading-relaxed">{proj.desc}</p>
+
+                    <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+                      {proj.tags && proj.tags.map((tag, tagIdx) => {
+                        if (tag.separator) {
+                          return <div key={tagIdx} className="w-[1px] h-4 bg-white/10 mx-1 self-center"></div>;
+                        }
+                        const isActive = activeTooltip === `project-${idx}-${tagIdx}`;
+                        return (
+                          <div
+                            key={tagIdx}
+                            className="tooltip-trigger relative group/tag cursor-pointer"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              e.preventDefault();
+                              setActiveTooltip(isActive ? null : `project-${idx}-${tagIdx}`);
+                            }}
+                          >
+                            <span className={`flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/5 text-[9px] sm:text-[10px] font-medium text-white/80 uppercase tracking-wider backdrop-blur-sm transition-all duration-300 group-hover/tag:bg-white/10 group-hover/tag:border-brand-blue/50 group-hover/tag:-translate-y-0.5 group-hover/tag:shadow-[0_0_15px_rgba(0,212,255,0.15)] group-hover/tag:text-white ${isActive ? 'bg-white/10 border-brand-blue/50 -translate-y-0.5 shadow-[0_0_15px_rgba(0,212,255,0.15)] text-white' : ''}`}>
+                              {tag.icon && <i className={`${tag.icon} ${tag.iconColor || 'text-white/60'} text-xs relative top-[0.5px] transition-transform duration-300 group-hover/tag:scale-125 ${isActive ? 'scale-125' : ''}`}></i>}
+                              {tag.label}
+                            </span>
+
+                            {tag.desc && (
+                              <div className={`absolute transition-all duration-300 z-50 w-max max-w-[220px] bg-[#1e1e24] border border-white/10 rounded-xl p-3 shadow-2xl bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 pointer-events-none text-center ${isActive ? 'opacity-100 visible -translate-y-2' : 'opacity-0 invisible translate-y-2 group-hover/tag:opacity-100 group-hover/tag:visible group-hover/tag:-translate-y-2'}`}>
+                                <h4 className="text-white font-bold text-[10px] mb-1 uppercase tracking-[0.1em]">{tag.label}</h4>
+                                <p className="text-brand-blue/90 text-[11px] leading-snug font-medium normal-case tracking-normal">{tag.desc}</p>
+                                <div className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-3 h-3 bg-[#1e1e24] border-r border-b border-white/10 rotate-45"></div>
                               </div>
-                            );
-                          })}
-                        </div>
-                        <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                          {project.repo && (
-                            <a
-                              href={project.repo}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="flex-1 inline-flex items-center justify-center gap-3 px-4 py-4 rounded-xl bg-[#252528] text-white hover:bg-[#333338] transition-all duration-300 text-xs font-black uppercase tracking-widest border border-white/5 shadow-xl"
-                            >
-                              <i className="fa-brands fa-github text-lg"></i> REPOSITÓRIO
-                            </a>
-                          )}
-                          {project.live && (
-                            <a
-                              href={project.live}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="flex-1 inline-flex items-center justify-center gap-3 px-4 py-4 rounded-xl bg-brand-orange text-white hover:bg-[#e66000] transition-all duration-300 text-xs font-black uppercase tracking-widest shadow-lg shadow-brand-orange/20"
-                            >
-                              <i className="fa-solid fa-arrow-up-right-from-square text-base"></i> ACESSAR PROJETO
-                            </a>
-                          )}
-                        </div>
-                      </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </section>
 
-            {/* CONTACT FOOTER */}
-            <section className="bg-[#2a2a2e] rounded-3xl py-6 px-6 lg:py-8 lg:px-20 text-center relative overflow-hidden">
-              <h2 className="text-3xl font-bold mb-2 text-white tracking-tight">Vamos Trabalhar Juntos? 🚀</h2>
-              <p className="text-text-secondary/80 mb-6 max-w-xl mx-auto text-[15px] leading-relaxed">
+                    <div className="flex flex-col xl:flex-row gap-3">
+                      {proj.repo && (
+                        <a href={proj.repo} target="_blank" rel="noreferrer" className="flex-1 text-center py-3.5 px-4 rounded-xl glass-panel text-white text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors">
+                          <i className="fa-brands fa-github text-sm mr-2"></i> GitHub
+                        </a>
+                      )}
+                      {proj.live && (
+                        <a href={proj.live} target="_blank" rel="noreferrer" className="flex-1 text-center py-3.5 px-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+                          Ver Projeto <i className="fa-solid fa-arrow-right text-xs ml-2"></i>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* CONTACT FOOTER (Original restored at the bottom) */}
+          <section className="px-6 lg:px-20 mx-auto w-full max-w-4xl relative z-20">
+            <div className="bg-gradient-to-br from-[#1a1a20] to-[#0f0f15] border border-white/5 rounded-[2.5rem] py-12 px-6 lg:py-16 text-center relative overflow-hidden shadow-2xl glass-panel">
+              <h2 className="text-3xl lg:text-4xl font-heading font-bold mb-4 text-white tracking-tight drop-shadow-md">Vamos Trabalhar Juntos? 🚀</h2>
+              <p className="text-text-secondary/80 mb-10 max-w-xl mx-auto text-[15px] leading-relaxed">
                 Estou disponível para novos projetos e oportunidades. Se você tem uma ideia ou precisa de um desenvolvedor dedicado, entre em contato!
               </p>
-              <div className="flex flex-col md:flex-row justify-center gap-4">
-                <a href="mailto:tfelizardo4@gmail.com" className="px-7 py-4 bg-[#131317] text-white font-bold text-[15px] rounded-xl hover:bg-black transition-all flex items-center justify-center gap-3 shadow-xl border border-white/5">
-                  <i className="fa-solid fa-envelope text-lg"></i> Enviar Email
-                </a>
-                <a href="https://wa.me/" className="px-7 py-4 bg-[#131317] text-white font-bold text-[15px] rounded-xl hover:bg-black transition-all flex items-center justify-center gap-3 shadow-xl border border-white/5">
-                  <i className="fa-brands fa-whatsapp text-2xl"></i> Conversar no WhatsApp
+              <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
+                  <a href="mailto:tfelizardo4@gmail.com" className="w-full sm:w-auto px-8 py-4 bg-[#131317] text-white font-bold text-[15px] rounded-xl hover:bg-black transition-all flex items-center justify-center gap-3 shadow-xl border border-white/5">
+                    <i className="fa-solid fa-envelope text-lg text-brand-blue"></i> Enviar Email
+                  </a>
+                  <a href="https://wa.me/" className="w-full sm:w-auto px-8 py-4 bg-[#131317] text-white font-bold text-[15px] rounded-xl hover:bg-black transition-all flex items-center justify-center gap-3 shadow-xl border border-white/5">
+                    <i className="fa-brands fa-whatsapp text-2xl text-green-500"></i> WhatsApp
+                  </a>
+                </div>
+                <a href={curriculoPdf} download className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-brand-purple font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-3 mt-2">
+                  <i className="fa-solid fa-download text-sm"></i> Download Currículo
                 </a>
               </div>
-            </section>
+            </div>
+          </section>
 
-            <footer className="text-center text-text-secondary text-xs pt-10 pb-10 tracking-widest opacity-50 uppercase">
-              <p>© 2026 dev.thiago</p>
-            </footer>
-          </div>
         </main>
+
+        {/* SMALL COPYRIGHT FOOTER */}
+        <footer className="w-full pb-10 relative z-10 text-center flex flex-col items-center">
+          <div className="flex justify-center gap-6 mb-6">
+            <a href="https://github.com/tfelizardo" target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full glass-panel hover:bg-brand-purple/20 transition-colors text-text-secondary hover:text-white text-lg">
+              <i className="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/thiago-felizardo-835b09213/" target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full glass-panel hover:bg-brand-blue/20 transition-colors text-text-secondary hover:text-white text-lg">
+              <i className="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/flzthiago/" target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full glass-panel hover:bg-pink-500/20 transition-colors text-text-secondary hover:text-white text-lg">
+              <i className="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+          <p className="text-text-secondary text-[10px] uppercase tracking-[0.2em] font-medium opacity-50">© 2026 dev.thiago</p>
+        </footer>
       </div>
     </>
   );
